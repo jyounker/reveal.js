@@ -183,7 +183,7 @@ for r in reader:
 						<li>Use ElasticSearch's API</li>
 						<li>No server-side programming</li>
 						<li>No additional web server necessary</li>
-						<li>Voila:  <a href="file:///home/jyounker/Work/Access2013/facetview/simple.html">basic search interface!</a>
+						<li>Voila:  basic search interface!</a>
 					</ul>
 					<aside class="notes">
 						Notey note note
@@ -227,6 +227,12 @@ for r in reader:
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				multiplex: {
+      					// Example values. To generate your own, see the socket.io server instructions.
+ 					secret: '13796838661531300205', // Obtained from the socket.io server. Gives this (the master) control of the presentation
+					id: 'e153f7bfd41b3aa8', // Obtained from socket.io server
+					url: 'jy.library.brocku.ca/access' // Location of socket.io server
+				},
 				controls: true,
 				progress: true,
 				history: true,
@@ -237,6 +243,8 @@ for r in reader:
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
+					{ src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js', async: true },
+				        { src: 'plugin/multiplex/master.js', async: true },
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
